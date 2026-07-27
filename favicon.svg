@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DMSaur">
+  <rect width="64" height="64" rx="14" fill="#3d6079"/>
+  <path d="M8 48 L23 24 L32 37 L41 20 L56 48 Z" fill="#f7f4ee"/>
+  <path d="M23 24 L28.4 32.6 L24 37 L18 32.5 Z" fill="#cdd9e2"/>
+</svg>

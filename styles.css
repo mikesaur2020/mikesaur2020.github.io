@@ -1,0 +1,305 @@
+/* ==========================================================================
+   Mike Saur — DMSaur  ·  styles.css
+   Static, framework-free. Outdoor-inspired, restrained, trustworthy.
+   Design tokens live in :root; dark mode adapts them. WCAG 2.1 AA targeted.
+   ========================================================================== */
+
+/* --- Reset-ish -------------------------------------------------------------*/
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, ul, ol, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* --- Design tokens (light) -------------------------------------------------*/
+:root {
+  --bg:        #f7f4ee;   /* warm paper */
+  --bg-soft:   #efe9dd;   /* alternating sections */
+  --surface:   #fffdf8;   /* cards */
+  --ink:       #23271f;   /* headings — deep warm charcoal */
+  --ink-soft:  #474c40;   /* body text (AA on --bg) */
+  --faint:     #62675a;   /* small meta (AA on --bg) */
+  --line:      #e2dccd;   /* borders */
+  --line-soft: #eae4d7;
+
+  --accent:      #3d6079; /* primary accent — alpine blue */
+  --accent-deep: #2e4a5e;
+  --accent-tint: #e6eef3;
+  --sky:         #3f5c6e; /* link accent — slate blue (AA on --bg) */
+  --clay:        #9a5a34; /* warm secondary, used sparingly */
+
+  --good:      #3d6079;
+
+  --radius:    14px;
+  --radius-sm: 10px;
+  --shadow-1:  0 1px 2px rgba(35,39,31,.05), 0 6px 20px rgba(35,39,31,.06);
+  --shadow-2:  0 2px 6px rgba(35,39,31,.08), 0 18px 40px rgba(35,39,31,.10);
+  --maxw:      1080px;
+  --ease:      cubic-bezier(.22,.61,.36,1);
+}
+
+/* --- Design tokens (dark) --------------------------------------------------*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #15170f;
+    --bg-soft:   #1c1e15;
+    --surface:   #1e2118;
+    --ink:       #eee9dc;
+    --ink-soft:  #c3bfae;
+    --faint:     #948f7e;
+    --line:      #30342551;
+    --line:      #313525;
+    --line-soft: #282b1e;
+
+    --accent:      #86a9c4;
+    --accent-deep: #9dbcd0;
+    --accent-tint: #1d2a35;
+    --sky:         #93b3c6;
+    --clay:        #cd9265;
+    --good:        #86a9c4;
+
+    --shadow-1:  0 1px 2px rgba(0,0,0,.35), 0 6px 20px rgba(0,0,0,.30);
+    --shadow-2:  0 2px 6px rgba(0,0,0,.4), 0 18px 40px rgba(0,0,0,.45);
+  }
+}
+
+/* --- Base ------------------------------------------------------------------*/
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+               Arial, "Helvetica Neue", sans-serif;
+  color: var(--ink-soft);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; font-weight: 750; }
+p { max-width: 68ch; }
+em { font-style: italic; }
+strong { color: var(--ink); font-weight: 700; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left)); }
+
+/* Honor reduced-motion everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+/* --- Skip link -------------------------------------------------------------*/
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px;
+  font-weight: 650; text-decoration: none; transition: top .16s var(--ease);
+}
+.skip-link:focus { top: 12px; }
+
+/* --- Focus visibility (keyboard) ------------------------------------------*/
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; border-radius: 6px; }
+a { text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+
+/* ==========================================================================
+   Header + navigation
+   ========================================================================== */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); font-size: 1.12rem; }
+.brand-mark { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(155deg, var(--accent) 0%, var(--accent-deep) 100%); box-shadow: var(--shadow-1); }
+.brand-mark svg { width: 20px; height: 20px; }
+.brand-mark.small { width: 26px; height: 26px; }
+.brand-mark.small svg { width: 17px; height: 17px; }
+
+/* Disclosure-based nav: works with NO JavaScript (native <details>). */
+.nav { position: relative; }
+.nav-toggle { display: none; }               /* hidden on desktop */
+.nav-list { display: flex; align-items: center; gap: 4px; }
+.nav-list a {
+  display: inline-block; padding: 8px 12px; border-radius: 8px; text-decoration: none;
+  color: var(--ink-soft); font-weight: 600; font-size: 0.96rem; transition: background .15s var(--ease), color .15s var(--ease);
+}
+.nav-list a:hover { background: var(--accent-tint); color: var(--ink); }
+
+/* Mobile: collapse into a tappable disclosure. */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: inline-flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
+    padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface);
+    color: var(--ink); font-weight: 650; font-size: 0.92rem; user-select: none;
+  }
+  .nav-toggle::-webkit-details-marker { display: none; }
+  .nav-toggle:hover { border-color: var(--accent); }
+  .nav[open] .nav-toggle { border-color: var(--accent); }
+
+  .nav-list {
+    position: absolute; right: 0; top: calc(100% + 10px);
+    flex-direction: column; align-items: stretch; gap: 2px; min-width: 200px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow-2); padding: 8px;
+  }
+  .nav-list a { padding: 11px 12px; font-size: 1rem; }
+}
+
+/* No-JS safeguard: if scripts are off we can't rely on toggling, but <details>
+   is native so it still works. This just guarantees the toggle is visible. */
+.no-js .nav-toggle { }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 20px; border-radius: 999px; font-weight: 650; font-size: 0.98rem;
+  text-decoration: none; cursor: pointer; border: 1.5px solid transparent;
+  transition: transform .14s var(--ease), background .15s var(--ease), border-color .15s var(--ease), box-shadow .15s var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-1); }
+.btn-primary:hover { background: var(--accent-deep); box-shadow: var(--shadow-2); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--accent); background: var(--accent-tint); }
+.btn-lg { padding: 14px 26px; font-size: 1.05rem; }
+@media (prefers-color-scheme: dark) {
+  .btn-primary { color: #12140d; }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero { position: relative; overflow: hidden; display: flex; align-items: center;
+  min-height: clamp(480px, 76vh, 760px); padding: clamp(84px, 14vw, 150px) 0 clamp(64px, 10vw, 110px); }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; z-index: 0; }
+.hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(102deg, rgba(14,22,29,0.74) 0%, rgba(14,22,29,0.44) 44%, rgba(14,22,29,0.18) 78%, rgba(14,22,29,0.06) 100%),
+    linear-gradient(to top, rgba(14,22,29,0.52) 0%, rgba(14,22,29,0) 48%),
+    linear-gradient(rgba(14,22,29,0.26), rgba(14,22,29,0.26)); }
+.hero-inner { position: relative; z-index: 2; }
+.eyebrow { color: rgba(255,255,255,0.82); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; text-shadow: 0 1px 14px rgba(8,13,18,0.5); }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; color: #fff; margin-bottom: 22px; text-shadow: 0 2px 22px rgba(8,13,18,0.45); }
+.hero h1 .accent { color: #a8cadd; }
+.hero-lede { font-size: clamp(1.05rem, 2.2vw, 1.28rem); color: rgba(255,255,255,0.94); max-width: 60ch; margin-bottom: 30px; text-shadow: 0 1px 18px rgba(8,13,18,0.5); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.08); }
+.hero .btn-ghost:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.18); }
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+.section { padding: clamp(56px, 9vw, 96px) 0; }
+.section-soft { background: var(--bg-soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.section-eyebrow { color: var(--accent); font-weight: 750; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+.section-title { font-size: clamp(1.7rem, 3.6vw, 2.5rem); margin-bottom: 14px; }
+.section-intro { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; margin-bottom: 34px; }
+
+/* ==========================================================================
+   Featured project card
+   ========================================================================== */
+.feature-card {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(20px, 4vw, 46px);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: var(--shadow-1); padding: clamp(24px, 4vw, 42px); margin-top: 8px;
+}
+.feature-tag { display: inline-block; color: var(--faint); font-weight: 700; font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.feature-name { font-size: clamp(1.35rem, 2.6vw, 1.8rem); margin-bottom: 14px; }
+.feature-body p { margin-bottom: 14px; }
+.status-line { display: flex; align-items: center; gap: 10px; margin: 18px 0 22px; padding: 12px 16px; background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: var(--radius-sm); color: var(--ink); font-size: 0.98rem; max-width: none; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--good); flex: 0 0 auto; box-shadow: 0 0 0 4px color-mix(in srgb, var(--good) 22%, transparent); }
+.feature-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.feature-aside { display: flex; flex-direction: column; gap: 16px; align-self: start; }
+.verdict-chip { display: flex; align-items: center; gap: 12px; background: linear-gradient(150deg, var(--accent) 0%, var(--accent-deep) 100%); color: #fff; padding: 16px 18px; border-radius: var(--radius); box-shadow: var(--shadow-1); }
+.verdict-icon { flex: 0 0 auto; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.16); color: #fff; }
+.verdict-text { font-weight: 750; font-size: 1.02rem; letter-spacing: -0.01em; }
+.mini-specs { display: flex; flex-direction: column; gap: 9px; }
+.mini-specs li { position: relative; padding-left: 22px; font-size: 0.92rem; color: var(--ink-soft); }
+.mini-specs li::before { content: ""; position: absolute; left: 4px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+.timeline { position: relative; display: grid; gap: 26px; padding-left: 30px; margin-top: 8px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), color-mix(in srgb, var(--accent) 25%, transparent)); border-radius: 2px; }
+.timeline-item { position: relative; }
+.timeline-node { position: absolute; left: -30px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); box-shadow: 0 0 0 4px var(--bg-soft); }
+.timeline-item h3 { font-size: 1.12rem; margin-bottom: 4px; }
+.timeline-item p { color: var(--ink-soft); }
+.section:not(.section-soft) .timeline-node { box-shadow: 0 0 0 4px var(--bg); }
+
+/* ==========================================================================
+   Card grids (learning / exploring)
+   ========================================================================== */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 18px; margin-top: 8px; }
+.note-card, .explore-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 22px; box-shadow: var(--shadow-1);
+  transition: transform .16s var(--ease), box-shadow .16s var(--ease), border-color .16s var(--ease);
+}
+.note-card:hover, .explore-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.note-card h3, .explore-card h3 { font-size: 1.1rem; margin-bottom: 7px; }
+.note-card p, .explore-card p { font-size: 0.96rem; color: var(--ink-soft); }
+.explore-icon { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 11px; background: var(--accent-tint); color: var(--accent); margin-bottom: 14px; }
+
+/* ==========================================================================
+   About + values
+   ========================================================================== */
+.about-wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: start; }
+.about-text p { margin-bottom: 16px; }
+.about-signature { font-style: italic; color: var(--accent); font-size: 1.14rem; border-left: 3px solid var(--accent); padding-left: 16px; margin-top: 6px; }
+.values { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-1); padding: 26px 26px; position: sticky; top: 84px; }
+.values-title { font-size: 1.15rem; margin-bottom: 16px; }
+.values-list { display: grid; gap: 16px; }
+.values-list li { display: grid; gap: 2px; padding-left: 18px; position: relative; }
+.values-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.value-key { font-weight: 700; color: var(--ink); }
+.value-desc { font-size: 0.94rem; color: var(--ink-soft); }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.contact-wrap { text-align: center; }
+.contact-wrap .section-eyebrow { }
+.contact-lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 54ch; margin: 0 auto 26px; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 40px 0; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.footer-brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 750; color: var(--ink); }
+.footer-brand .brand-mark { background: linear-gradient(155deg, var(--accent), var(--accent-deep)); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.footer-nav a { color: var(--ink-soft); text-decoration: none; font-size: 0.94rem; font-weight: 600; }
+.footer-nav a:hover { color: var(--accent); text-decoration: underline; }
+.footer-note { width: 100%; color: var(--faint); font-size: 0.86rem; margin-top: 4px; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 860px) {
+  .feature-card { grid-template-columns: 1fr; }
+  .feature-aside { order: -1; }
+  .about-wrap { grid-template-columns: 1fr; }
+  .values { position: static; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .hero { padding-top: 52px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* 404 helper (used by 404.html which reuses this stylesheet) */
+.center-stage { min-height: 72vh; display: grid; place-items: center; text-align: center; padding: 40px 0; }
+.center-stage .code { font-size: clamp(3rem, 12vw, 6rem); font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+.center-stage h1 { margin: 10px 0 8px; }
+.center-stage p { margin: 0 auto 22px; }

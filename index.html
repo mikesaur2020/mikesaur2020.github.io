@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!--
+    ============================================================================
+    SITE URL CONFIGURATION  —  change these in ONE PLACE when the domain moves.
+    ----------------------------------------------------------------------------
+    Currently deployed at:  https://mikesaur2020.github.io/
+    Future custom domain:   https://dmsaur.com/
+
+    When you move to dmsaur.com, update the absolute URLs in:
+      1. <link rel="canonical">            (this file, below)
+      2. og:url / twitter:url              (this file, below)
+      3. og:image / twitter:image          (this file, below)
+      4. sitemap.xml                       (<loc>)
+      5. robots.txt                        (Sitemap:)
+    Every one of those lines is marked with a "SITE URL" comment so it is easy
+    to find. Nothing else needs to change.
+    ============================================================================
+  -->
+
+  <title>Mike Saur — Ideas are easy. Learning is the adventure.</title>
+  <meta name="description" content="Mike Saur (DMSaur) builds practical tools and ships them. Home of Generator Power Advisor and the notes, values, and experiments behind the work.">
+  <meta name="author" content="Mike Saur">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15170f" media="(prefers-color-scheme: dark)">
+
+  <!-- SITE URL -->
+  <link rel="canonical" href="https://mikesaur2020.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mike Saur — DMSaur">
+  <meta property="og:title" content="Mike Saur — Ideas are easy. Learning is the adventure.">
+  <meta property="og:description" content="A builder who turns real problems into tools people can actually use. Home of Generator Power Advisor.">
+  <!-- SITE URL -->
+  <meta property="og:url" content="https://mikesaur2020.github.io/">
+  <!-- SITE URL — SVG preview; see README for the recommended PNG export for broad social-network support. -->
+  <meta property="og:image" content="https://mikesaur2020.github.io/assets/social-preview.svg">
+  <meta property="og:image:alt" content="DMSaur — Ideas are easy. Learning is the adventure.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mike Saur — Ideas are easy. Learning is the adventure.">
+  <meta name="twitter:description" content="A builder who turns real problems into tools people can actually use. Home of Generator Power Advisor.">
+  <!-- SITE URL -->
+  <meta name="twitter:image" content="https://mikesaur2020.github.io/assets/social-preview.svg">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Progressive enhancement flag: swap no-js -> js before paint so CSS can
+       adapt (e.g. the mobile menu) without a flash. If JS is disabled this line
+       never runs and the .no-js styles keep every link fully reachable. -->
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data: a single Person entity. No fabricated affiliations. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mike Saur",
+    "alternateName": "DMSaur",
+    "url": "https://mikesaur2020.github.io/",
+    "email": "mailto:support@dmsaur.com",
+    "description": "A builder who turns real problems into practical tools and ships them."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="home">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="DMSaur — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+            <path d="M2 25 L11 11 L16 18 L21 9 L30 25 Z" fill="currentColor"/>
+            <path d="M11 11 L14.2 15.9 L12 18.4 L8.6 16 Z" fill="rgba(255,255,255,0.28)"/>
+          </svg>
+        </span>
+        <span class="brand-text">DMSaur</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <details class="nav" id="nav-disclosure">
+          <summary class="nav-toggle" aria-label="Menu">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="nav-toggle-label">Menu</span>
+          </summary>
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <picture>
+        <source type="image/webp" srcset="assets/hero-800.webp 800w, assets/hero.webp 1502w" sizes="100vw">
+        <img class="hero-photo" src="assets/hero.jpg"
+             srcset="assets/hero-800.jpg 800w, assets/hero.jpg 1502w" sizes="100vw"
+             width="1502" height="2000" fetchpriority="high"
+             alt="Hidden Lake below Reynolds Mountain in Glacier National Park, with alpine wildflowers in the foreground">
+      </picture>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <h1 id="hero-title">Ideas are easy.<br><span class="accent">Learning is the adventure.</span></h1>
+        <p class="hero-lede">
+          Every project is a chance to learn something new, solve a real problem, and
+          leave the world a little better than I found it.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore my projects</a>
+          <a class="btn btn-ghost" href="#journey">Follow the journey</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FEATURED PROJECT ======================= -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <p class="section-eyebrow">Featured project</p>
+        <h2 id="projects-title" class="section-title">Generator Power Advisor</h2>
+
+        <article class="feature-card">
+          <div class="feature-body">
+            <p class="feature-tag">Web app · iOS</p>
+            <h3 class="feature-name">Know what you can safely run</h3>
+            <p>
+              Generator Power Advisor started with one honest question during a power outage:
+              <em>can this generator actually run all of that at once?</em> It grew into a careful
+              little advisor that weighs your appliances, startup surge, elevation, and fuel, then
+              gives a clear verdict — safe, near capacity, or too much — with the one change that
+              gets you back to safe.
+            </p>
+            <p>
+              It's built for real situations: home backup during an outage, a job site, a campsite,
+              a cabin, or living off-grid. It works offline, keeps your data on your own device,
+              and never asks for an account.
+            </p>
+
+            <p class="status-line">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span><strong>iPhone app:</strong> submitted to the App&nbsp;Store.</span>
+            </p>
+
+            <div class="feature-actions">
+              <!-- Generator Power Advisor lives at its own subdomain. -->
+              <a class="btn btn-primary" href="https://gpa.dmsaur.com" rel="noopener">Launch the web app</a>
+              <a class="btn btn-ghost" href="https://gpa.dmsaur.com/support/" rel="noopener">Support</a>
+              <a class="btn btn-ghost" href="https://gpa.dmsaur.com/privacy/" rel="noopener">Privacy</a>
+            </div>
+          </div>
+
+          <div class="feature-aside" aria-hidden="true">
+            <div class="verdict-chip">
+              <span class="verdict-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="verdict-text">This should run safely</span>
+            </div>
+            <ul class="mini-specs">
+              <li>Startup surge &amp; running watts</li>
+              <li>Elevation &amp; temperature derate</li>
+              <li>Gas &amp; propane fuel planning</li>
+              <li>Offline · no account · private</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= THE JOURNEY ========================= -->
+    <section class="section section-soft" id="journey" aria-labelledby="journey-title">
+      <div class="wrap">
+        <p class="section-eyebrow">The journey so far</p>
+        <h2 id="journey-title" class="section-title">How a nagging question became an app</h2>
+        <p class="section-intro">
+          Nothing here happened in one leap. It was a string of small, stubborn steps — each one
+          teaching me a little more about the difference between an idea and something that ships.
+        </p>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>The itch</h3>
+            <p>A real outage, a generator, and a question I couldn't answer with confidence. So I started sketching the math on paper.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>A rough working tool</h3>
+            <p>The first version was ugly and personal — just enough to answer my own question. But it worked, and that changed everything.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>From calculator to advisor</h3>
+            <p>Numbers weren't enough. People need a verdict and a next step, so I rebuilt it around a clear "safe / near / too much" answer.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>Grounded in the real world</h3>
+            <p>I added a generator database and a way to log combinations that actually work, so the advice leans on real results, not just theory.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>A look it deserved</h3>
+            <p>An honest tool should feel trustworthy. I built a calm, consistent visual identity and a full icon set, and cut every bit of clutter.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>Onto the phone</h3>
+            <p>I wrapped it as a native iOS app, wrote a real privacy policy and support page, and sweated the details reviewers care about.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <h3>Out the door</h3>
+            <p>The iPhone app is submitted to the App&nbsp;Store — the moment an idea stops being mine alone and becomes something others can use.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================== WHAT I'M LEARNING ====================== -->
+    <section class="section" id="learning" aria-labelledby="learning-title">
+      <div class="wrap">
+        <p class="section-eyebrow">What I'm learning</p>
+        <h2 id="learning-title" class="section-title">Lessons the work keeps teaching me</h2>
+
+        <div class="card-grid">
+          <article class="note-card">
+            <h3>Shipping beats polishing</h3>
+            <p>A finished thing in someone's hands teaches more in a day than a perfect thing in my head teaches in a month.</p>
+          </article>
+          <article class="note-card">
+            <h3>Design is a feature</h3>
+            <p>If a tool feels trustworthy and calm, people believe its answers. Clarity isn't decoration — it's part of the function.</p>
+          </article>
+          <article class="note-card">
+            <h3>Accessibility from the start</h3>
+            <p>Keyboard focus, contrast, reduced motion, honest labels. Building it in from day one is far easier than bolting it on later.</p>
+          </article>
+          <article class="note-card">
+            <h3>Constraints are a gift</h3>
+            <p>No frameworks, no tracking, works offline. Tight limits force honest decisions and leave less to break.</p>
+          </article>
+          <article class="note-card">
+            <h3>Be honest about limits</h3>
+            <p>An estimate should say it's an estimate. Trust comes from telling people what a tool can't promise, not just what it can.</p>
+          </article>
+          <article class="note-card">
+            <h3>Finish the last 10%</h3>
+            <p>Privacy pages, edge cases, the boring polish before release — that unglamorous stretch is usually where "done" actually lives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== THINGS I'M EXPLORING ==================== -->
+    <section class="section section-soft" id="exploring" aria-labelledby="exploring-title">
+      <div class="wrap">
+        <p class="section-eyebrow">Things I'm exploring</p>
+        <h2 id="exploring-title" class="section-title">Where my curiosity is pointed next</h2>
+        <p class="section-intro">
+          Honest about what's ongoing — these are directions I'm poking at, not finished products or promises.
+        </p>
+
+        <div class="card-grid">
+          <article class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3v18M4 8l8-5 8 5M4 8v8l8 5 8-5V8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Offline-first apps</h3>
+            <p>Tools that stay useful with no signal — because the moments you need them most are often the moments you're off the grid.</p>
+          </article>
+          <article class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="5" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 21h8M12 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Native from the web</h3>
+            <p>Taking a well-built web app and giving it a proper home on the phone, without throwing away what already works.</p>
+          </article>
+          <article class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3a4 4 0 013.6 5.8A4 4 0 0114 16H10a4 4 0 01-1.6-7.2A4 4 0 0112 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 16v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>AI-assisted building</h3>
+            <p>Using AI as a genuine collaborator in the craft — faster iterations, sharper reviews, still with my hands on the wheel.</p>
+          </article>
+          <article class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="4" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 7h.01M7 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Home lab &amp; automation</h3>
+            <p>Wiring up the small systems that quietly run in the background, and learning what it takes to keep them dependable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= ABOUT MIKE ========================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap about-wrap">
+        <div class="about-text">
+          <p class="section-eyebrow">About</p>
+          <h2 id="about-title" class="section-title">Hi, I'm Mike</h2>
+          <p>
+            I'm a builder at heart. I like taking a real, everyday problem and working at it until
+            there's something practical to show for it — something that holds up when a real person
+            actually uses it. A lot of my ideas start outdoors, where the difference between a good
+            plan and a working one tends to matter most.
+          </p>
+          <p>
+            I'd rather ship a small, honest tool than sit on a big, perfect one. The satisfying part
+            isn't the idea; it's the long, unglamorous stretch of getting it out the door — and then
+            watching it be useful to someone else.
+          </p>
+          <p class="about-signature">
+            Because I wanted to leave the world a little better than I found it.
+          </p>
+        </div>
+
+        <aside class="values" aria-labelledby="values-title">
+          <h3 id="values-title" class="values-title">What I build by</h3>
+          <ul class="values-list">
+            <li>
+              <span class="value-key">Ship it</span>
+              <span class="value-desc">Done and useful beats perfect and imaginary.</span>
+            </li>
+            <li>
+              <span class="value-key">Keep it honest</span>
+              <span class="value-desc">Say what a tool can and can't promise.</span>
+            </li>
+            <li>
+              <span class="value-key">Build for real people</span>
+              <span class="value-desc">Accessible, private, and clear by default.</span>
+            </li>
+            <li>
+              <span class="value-key">Sweat the last 10%</span>
+              <span class="value-desc">The boring polish is where trust is earned.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========================== CONTACT ========================== -->
+    <section class="section section-soft" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-wrap">
+        <p class="section-eyebrow">Contact</p>
+        <h2 id="contact-title" class="section-title">Let's talk</h2>
+        <p class="contact-lede">
+          Building something, curious about a project, or just want to say hello? The best way to
+          reach me is email — I read everything that comes in.
+        </p>
+        <a class="btn btn-primary btn-lg" href="mailto:support@dmsaur.com?subject=Hello%20from%20your%20site">Email support@dmsaur.com</a>
+
+        <!--
+          ===================== OPTIONAL LINK CONFIG =====================
+          Placeholders for future profiles. They are intentionally left as
+          comments so no broken/# links ever render. To add one, drop a real
+          URL in the href and un-comment the block. See README.md > "Adding
+          your links". Do NOT ship these with placeholder or "#" URLs.
+
+          <ul class="social-links">
+            <li><a href="https://github.com/YOUR_USERNAME" rel="me noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/YOUR_PROFILE" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://apps.apple.com/app/idYOUR_APP_ID" rel="noopener">App Store</a></li>
+          </ul>
+          ================================================================
+        -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark small" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img" aria-hidden="true"><path d="M2 25 L11 11 L16 18 L21 9 L30 25 Z" fill="currentColor"/></svg>
+        </span>
+        <span>DMSaur</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="https://gpa.dmsaur.com" rel="noopener">Generator Power Advisor</a>
+        <a href="https://gpa.dmsaur.com/privacy/" rel="noopener">Privacy</a>
+        <a href="https://gpa.dmsaur.com/support/" rel="noopener">Support</a>
+        <a href="mailto:support@dmsaur.com">Contact</a>
+      </nav>
+
+      <p class="footer-note">
+        &copy; <span id="year">2026</span> Mike Saur. Built by hand — no trackers, no cookies.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
