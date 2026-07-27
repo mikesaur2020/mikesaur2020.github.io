@@ -1,6 +1,6 @@
 # mikesaur2020.github.io
 
-Personal website for **Mike Saur (DMSaur)** — a builder who turns real problems into
+Personal website for **DMSaur** — a builder who turns real problems into
 practical tools and ships them.
 
 > Ideas are easy. Shipping is the adventure.
@@ -170,5 +170,5 @@ external requests of any kind. Everything is served from this origin.
 
 ## License / content
 
-Site content and design © Mike Saur. Code is straightforward static HTML/CSS/JS;
+Site content and design © DMSaur. Code is straightforward static HTML/CSS/JS;
 reuse the structure freely as a reference.

@@ -1,5 +1,5 @@
 /* =============================================================================
-   Mike Saur — DMSaur  ·  script.js
+   DMSaur  ·  script.js
    Minimal, dependency-free progressive enhancement.
    Everything here is optional: with JavaScript disabled the page is fully
    usable (native <details> menu, static year fallback, real anchor links).
