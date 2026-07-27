@@ -6,19 +6,13 @@
 
   <!--
     ============================================================================
-    SITE URL CONFIGURATION  —  change these in ONE PLACE when the domain moves.
+    SITE URL CONFIGURATION
     ----------------------------------------------------------------------------
-    Currently deployed at:  https://mikesaur2020.github.io/
-    Future custom domain:   https://dmsaur.com/
+    Authoritative public URL:  https://dmsaur.com/   (custom domain, live)
+    Legacy GitHub Pages host:  https://mikesaur2020.github.io/  (301-redirects here)
 
-    When you move to dmsaur.com, update the absolute URLs in:
-      1. <link rel="canonical">            (this file, below)
-      2. og:url / twitter:url              (this file, below)
-      3. og:image / twitter:image          (this file, below)
-      4. sitemap.xml                       (<loc>)
-      5. robots.txt                        (Sitemap:)
-    Every one of those lines is marked with a "SITE URL" comment so it is easy
-    to find. Nothing else needs to change.
+    Canonical, og:url, og:image, twitter:image, and the JSON-LD "url" below all
+    use https://dmsaur.com. sitemap.xml and robots.txt use it too.
     ============================================================================
   -->
 
@@ -30,7 +24,7 @@
   <meta name="theme-color" content="#15170f" media="(prefers-color-scheme: dark)">
 
   <!-- SITE URL -->
-  <link rel="canonical" href="https://mikesaur2020.github.io/">
+  <link rel="canonical" href="https://dmsaur.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -38,9 +32,9 @@
   <meta property="og:title" content="DMSaur — Ideas are easy. Learning is the adventure.">
   <meta property="og:description" content="A builder who turns real problems into tools people can actually use. Home of Generator Power Advisor.">
   <!-- SITE URL -->
-  <meta property="og:url" content="https://mikesaur2020.github.io/">
+  <meta property="og:url" content="https://dmsaur.com/">
   <!-- SITE URL — SVG preview; see README for the recommended PNG export for broad social-network support. -->
-  <meta property="og:image" content="https://mikesaur2020.github.io/assets/social-preview.svg">
+  <meta property="og:image" content="https://dmsaur.com/assets/social-preview.svg">
   <meta property="og:image:alt" content="DMSaur — Ideas are easy. Learning is the adventure.">
 
   <!-- Twitter -->
@@ -48,7 +42,7 @@
   <meta name="twitter:title" content="DMSaur — Ideas are easy. Learning is the adventure.">
   <meta name="twitter:description" content="A builder who turns real problems into tools people can actually use. Home of Generator Power Advisor.">
   <!-- SITE URL -->
-  <meta name="twitter:image" content="https://mikesaur2020.github.io/assets/social-preview.svg">
+  <meta name="twitter:image" content="https://dmsaur.com/assets/social-preview.svg">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -64,7 +58,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "DMSaur",
-    "url": "https://mikesaur2020.github.io/",
+    "url": "https://dmsaur.com/",
     "email": "mailto:support@dmsaur.com",
     "description": "A builder who turns real problems into practical tools and ships them."
   }
@@ -73,9 +67,9 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" id="home">
+  <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#home" aria-label="DMSaur — home">
+      <a class="brand" href="https://dmsaur.com/" aria-label="DMSaur home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
             <path d="M2 25 L11 11 L16 18 L21 9 L30 25 Z" fill="currentColor"/>
@@ -85,20 +79,26 @@
         <span class="brand-text">DMSaur</span>
       </a>
 
-      <nav aria-label="Primary">
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-desktop">
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#journey">Journey</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+
         <details class="nav" id="nav-disclosure">
-          <summary class="nav-toggle" aria-label="Menu">
+          <summary class="nav-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
               <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <span class="nav-toggle-label">Menu</span>
           </summary>
           <ul class="nav-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#journey">Journey</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/#journey">Journey</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </details>
       </nav>
@@ -409,8 +409,8 @@
 
       <nav class="footer-nav" aria-label="Footer">
         <a href="https://gpa.dmsaur.com" rel="noopener">Generator Power Advisor</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/support">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/support/">Support</a>
         <a href="mailto:support@dmsaur.com">Contact</a>
       </nav>
 

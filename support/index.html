@@ -11,14 +11,14 @@
   <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#15170f" media="(prefers-color-scheme: dark)">
 
-  <link rel="canonical" href="https://dmsaur.com/support">
+  <link rel="canonical" href="https://dmsaur.com/support/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DMSaur">
   <meta property="og:title" content="Support | DMSaur">
   <meta property="og:description" content="Support resources for DMSaur software products.">
-  <meta property="og:url" content="https://dmsaur.com/support">
+  <meta property="og:url" content="https://dmsaur.com/support/">
   <meta property="og:image" content="https://dmsaur.com/assets/social-preview.svg">
   <meta property="og:image:alt" content="DMSaur — Ideas are easy. Learning is the adventure.">
 
@@ -37,8 +37,6 @@
   <style>
     .doc { padding: clamp(30px, 6vw, 64px) 0 clamp(48px, 9vw, 90px); }
     .doc .wrap { max-width: 760px; }
-    .doc-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 650; color: var(--accent); text-decoration: none; margin-bottom: 18px; }
-    .doc-back:hover { text-decoration: underline; }
     .doc h1 { font-size: clamp(2rem, 5vw, 2.8rem); letter-spacing: -0.02em; margin-bottom: 12px; }
     .doc-lede { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 10px; max-width: 62ch; }
     .doc h2 { font-size: 1.28rem; letter-spacing: -0.01em; margin: 34px 0 10px; padding-top: 26px; border-top: 1px solid var(--line); }
@@ -57,7 +55,7 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="/" aria-label="DMSaur — home">
+      <a class="brand" href="https://dmsaur.com/" aria-label="DMSaur home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
             <path d="M2 25 L11 11 L16 18 L21 9 L30 25 Z" fill="currentColor"/>
@@ -67,16 +65,22 @@
         <span class="brand-text">DMSaur</span>
       </a>
 
-      <nav aria-label="Primary">
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-desktop">
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#journey">Journey</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+
         <details class="nav" id="nav-disclosure">
-          <summary class="nav-toggle" aria-label="Menu">
+          <summary class="nav-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
               <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <span class="nav-toggle-label">Menu</span>
           </summary>
           <ul class="nav-list">
-            <li><a href="/">Home</a></li>
             <li><a href="/#projects">Projects</a></li>
             <li><a href="/#journey">Journey</a></li>
             <li><a href="/#about">About</a></li>
@@ -89,8 +93,6 @@
 
   <main id="main" class="doc">
     <div class="wrap">
-      <a class="doc-back" href="/">‹ Back to home</a>
-
       <h1>Support</h1>
       <p class="doc-lede">
         Need help with a DMSaur application? Choose a product below to find documentation,
@@ -134,8 +136,8 @@
 
       <nav class="footer-nav" aria-label="Footer">
         <a href="https://gpa.dmsaur.com" rel="noopener">Generator Power Advisor</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/support">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/support/">Support</a>
         <a href="mailto:support@dmsaur.com">Contact</a>
       </nav>
 

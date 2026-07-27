@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# SITE URL — update the host here when moving to https://dmsaur.com/
-Sitemap: https://mikesaur2020.github.io/sitemap.xml
+Sitemap: https://dmsaur.com/sitemap.xml

@@ -113,46 +113,55 @@ a { text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
 
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); font-size: 1.12rem; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); font-size: 1.12rem; transition: opacity .15s var(--ease); }
+.brand:hover { opacity: 0.82; }
 .brand-mark { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; color: #fff;
   background: linear-gradient(155deg, var(--accent) 0%, var(--accent-deep) 100%); box-shadow: var(--shadow-1); }
 .brand-mark svg { width: 20px; height: 20px; }
 .brand-mark.small { width: 26px; height: 26px; }
 .brand-mark.small svg { width: 17px; height: 17px; }
 
-/* Disclosure-based nav: works with NO JavaScript (native <details>). */
-.nav { position: relative; }
-.nav-toggle { display: none; }               /* hidden on desktop */
-.nav-list { display: flex; align-items: center; gap: 4px; }
-.nav-list a {
+/* Primary nav — visible inline links on desktop, disclosure menu on mobile. */
+.primary-nav { display: flex; align-items: center; }
+
+/* Desktop: understated inline links (no boxes, no button styling). */
+.nav-desktop { display: flex; align-items: center; gap: 2px; }
+.nav-desktop a {
   display: inline-block; padding: 8px 12px; border-radius: 8px; text-decoration: none;
-  color: var(--ink-soft); font-weight: 600; font-size: 0.96rem; transition: background .15s var(--ease), color .15s var(--ease);
+  color: var(--ink-soft); font-weight: 600; font-size: 0.96rem;
+  transition: background .15s var(--ease), color .15s var(--ease);
+}
+.nav-desktop a:hover { background: var(--accent-tint); color: var(--ink); }
+
+/* Mobile disclosure — hidden on desktop; native <details> works with no JS. */
+.nav { position: relative; display: none; }
+.nav-toggle {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
+  padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface);
+  color: var(--ink); font-weight: 650; font-size: 0.92rem; user-select: none;
+}
+.nav-toggle::-webkit-details-marker { display: none; }
+.nav-toggle::marker { content: ""; }
+.nav-toggle:hover { border-color: var(--accent); }
+.nav[open] .nav-toggle { border-color: var(--accent); }
+.nav-list {
+  position: absolute; right: 0; top: calc(100% + 10px);
+  display: flex; flex-direction: column; align-items: stretch; gap: 2px;
+  min-width: 200px; max-width: min(78vw, 280px);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow-2); padding: 8px;
+}
+.nav-list a {
+  display: block; padding: 11px 12px; border-radius: 8px; text-decoration: none;
+  color: var(--ink-soft); font-weight: 600; font-size: 1rem;
+  transition: background .15s var(--ease), color .15s var(--ease);
 }
 .nav-list a:hover { background: var(--accent-tint); color: var(--ink); }
 
-/* Mobile: collapse into a tappable disclosure. */
 @media (max-width: 720px) {
-  .nav-toggle {
-    display: inline-flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
-    padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface);
-    color: var(--ink); font-weight: 650; font-size: 0.92rem; user-select: none;
-  }
-  .nav-toggle::-webkit-details-marker { display: none; }
-  .nav-toggle:hover { border-color: var(--accent); }
-  .nav[open] .nav-toggle { border-color: var(--accent); }
-
-  .nav-list {
-    position: absolute; right: 0; top: calc(100% + 10px);
-    flex-direction: column; align-items: stretch; gap: 2px; min-width: 200px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    box-shadow: var(--shadow-2); padding: 8px;
-  }
-  .nav-list a { padding: 11px 12px; font-size: 1rem; }
+  .nav-desktop { display: none; }
+  .nav { display: block; }
 }
-
-/* No-JS safeguard: if scripts are off we can't rely on toggling, but <details>
-   is native so it still works. This just guarantees the toggle is visible. */
-.no-js .nav-toggle { }
 
 /* ==========================================================================
    Buttons

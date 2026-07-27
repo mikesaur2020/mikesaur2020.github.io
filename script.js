@@ -17,6 +17,13 @@
   //    doesn't scroll with an open menu still covering the content.
   var nav = document.getElementById("nav-disclosure");
   if (nav) {
+    // Keep aria-expanded on the toggle in sync with the disclosure state — this
+    // fires on open, close, Escape, outside-click, and link taps alike.
+    var navSummary = nav.querySelector("summary");
+    nav.addEventListener("toggle", function () {
+      if (navSummary) navSummary.setAttribute("aria-expanded", nav.open ? "true" : "false");
+    });
+
     nav.addEventListener("click", function (e) {
       var link = e.target.closest("a");
       if (link && nav.open) {
